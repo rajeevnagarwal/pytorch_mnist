@@ -39,7 +39,7 @@ def train(model,train_data,test_data,learning_rate,epochs,batch_size):
 			optimizer.step()
 		train_loss = train_loss/float(batch_size)
 		print('Train Epoch : {} Loss : {:.6f}'.format(i,train_loss))
-		torch.save(model.state_dict(),'model_n.ckpt')
+		torch.save(model.state_dict(),'model.ckpt')
 
 
 
@@ -59,7 +59,7 @@ if __name__=="__main__":
     model = Net()
     learning_rate = 0.1
     batch_size = 100
-    epochs = 1
+    epochs = 20
     train_loader = torch.utils.data.DataLoader(dataset = train_data,batch_size=batch_size,shuffle=True)
     test_loader = torch.utils.data.DataLoader(dataset = test_data,batch_size=batch_size,shuffle=True)
     train(model,train_loader,test_loader,learning_rate,epochs,batch_size)
